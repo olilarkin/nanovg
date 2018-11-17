@@ -21,7 +21,7 @@
 #define GLFW_INCLUDE_GLEXT
 #include <GLFW/glfw3.h>
 #include "nanovg.h"
-#define NANOVG_GLES3_IMPLEMENTATION
+#define NANOVG_GLES2_IMPLEMENTATION
 #include "nanovg_gl.h"
 #include "nanovg_gl_utils.h"
 #include "demo.h"
@@ -135,7 +135,7 @@ int main()
 
 	glfwMakeContextCurrent(window);
 
-	vg = nvgCreateGLES3(NVG_ANTIALIAS | NVG_STENCIL_STROKES);
+	vg = nvgCreateGLES2(NVG_ANTIALIAS | NVG_STENCIL_STROKES);
 	if (vg == NULL) {
 		printf("Could not init nanovg.\n");
 		return -1;
@@ -153,7 +153,7 @@ int main()
 
 	freeDemoData(vg, &data);
 
-	nvgDeleteGLES3(vg);
+	nvgDeleteGLES2(vg);
 
 	glfwTerminate();
 	return 0;
